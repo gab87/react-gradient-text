@@ -18,6 +18,6 @@
     "isolatedModules": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist", "**/*.test.tsx", "**/*.stories.tsx"],
+  "exclude": ["node_modules", "dist", "src/__tests__", "**/*.test.tsx", "**/*.stories.tsx"],
   "references": [{ "path": "./tsconfig.test.json" }]
 }

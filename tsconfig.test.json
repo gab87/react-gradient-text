@@ -9,5 +9,6 @@
     "rootDir": ".",
     "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["src/**/*.test.tsx", "src/__tests__/setup.ts"]
+  "include": ["src/**/*.test.tsx", "src/__tests__/setup.ts"],
+  "exclude": ["node_modules"]
 }
