@@ -1,7 +1,11 @@
 import type { CSSProperties } from "react";
 import type { ReactGradientTextProps } from "./ReactGradientText.types";
+import { isFadeIn, getFadeInStartStyle, getFadeInEndStyle } from "./Animations";
+import { useIntersectionObserver } from "./UseIntersectionObserver";
+import { useScrambleAnimation } from "./UseScrambleAnimation";
 
 const DEFAULT_DIRECTION = "to right";
+const DEFAULT_DURATION = 500;
 
 /**
  * Builds the linear-gradient CSS value from colors distributed equally.
@@ -30,8 +34,31 @@ function buildGradient({
 }
 
 /**
+ * Computes the animation-specific inline styles based on the current visibility state.
+ * @param params - Object with animation type, duration, and visibility flag
+ * @returns CSSProperties for the current animation state
+ */
+function getAnimationStyle({
+  animation,
+  duration,
+  isVisible,
+}: {
+  animation: ReactGradientTextProps["animation"];
+  duration: number;
+  isVisible: boolean;
+}): CSSProperties {
+  if (!animation) return {};
+  if (!isFadeIn(animation)) return {};
+
+  return isVisible
+    ? getFadeInEndStyle({ duration })
+    : getFadeInStartStyle({ animation, duration });
+}
+
+/**
  * ReactGradientText renders text with a CSS gradient applied.
  * Colors are distributed equally across the gradient.
+ * Supports fade-in and scramble animations triggered by IntersectionObserver.
  * @param props - Component props
  * @returns JSX element with gradient text
  */
@@ -42,9 +69,22 @@ function ReactGradientText({
   as: Component = "span",
   className,
   style,
+  animation,
+  duration = DEFAULT_DURATION,
   ...rest
 }: ReactGradientTextProps) {
+  const { ref, isVisible } = useIntersectionObserver<HTMLElement>();
+  const isScramble = animation === "scramble";
+  const scrambleActive = isScramble && isVisible;
+
+  const displayText = useScrambleAnimation({
+    text,
+    duration,
+    isActive: scrambleActive,
+  });
+
   const gradient = buildGradient({ colors, direction });
+  const animationStyle = getAnimationStyle({ animation, duration, isVisible });
 
   const gradientStyle: CSSProperties = {
     backgroundImage: gradient,
@@ -53,16 +93,20 @@ function ReactGradientText({
     WebkitTextFillColor: "transparent",
     color: "transparent",
     width: "fit-content",
+    ...animationStyle,
     ...style,
   };
 
+  const renderedText = isScramble ? displayText : text;
+
   return (
     <Component
+      ref={animation ? ref : undefined}
       className={className}
       style={gradientStyle}
       {...rest}
     >
-      {text}
+      {renderedText}
     </Component>
   );
 }

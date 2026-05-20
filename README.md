@@ -33,6 +33,39 @@ function App() {
 | `as`        | `ElementType` | `"span"`     | HTML element to render                         |
 | `className` | `string`      | `undefined`  | Additional CSS class                           |
 | `style`     | `CSSProperties` | `undefined` | Additional inline styles (merged with gradient) |
+| `animation` | `AnimationType` | `undefined` | Animation triggered on viewport entry (`fade-in-*`, `scramble`) |
+| `duration`  | `number`        | `500`        | Animation duration in milliseconds |
+
+## Animations
+
+Animations are triggered automatically when the element enters the viewport via `IntersectionObserver`.
+
+**Available animations:**
+- `fade-in-up`, `fade-in-down`, `fade-in-left`, `fade-in-right`
+- `fade-in-top-left`, `fade-in-top-right`, `fade-in-bottom-left`, `fade-in-bottom-right`
+- `scramble` — characters shuffle progressively until the final text is revealed
+
+### Fade-in example
+
+```tsx
+<ReactGradientText
+  text="Hello!"
+  colors={["#667eea", "#764ba2"]}
+  animation="fade-in-up"
+  duration={800}
+/>
+```
+
+### Scramble example
+
+```tsx
+<ReactGradientText
+  text="Scramble!"
+  colors={["#ff6b6b", "#4ecdc4"]}
+  animation="scramble"
+  duration={1000}
+/>
+```
 
 ## Examples
 

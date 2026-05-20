@@ -13,6 +13,26 @@ const meta: Meta<typeof ReactGradientText> = {
       control: "text",
       description: "HTML element to render",
     },
+    animation: {
+      control: "select",
+      options: [
+        undefined,
+        "fade-in-up",
+        "fade-in-down",
+        "fade-in-left",
+        "fade-in-right",
+        "fade-in-top-left",
+        "fade-in-top-right",
+        "fade-in-bottom-left",
+        "fade-in-bottom-right",
+        "scramble",
+      ],
+      description: "Animation triggered on viewport intersection",
+    },
+    duration: {
+      control: "number",
+      description: "Animation duration in milliseconds",
+    },
   },
 };
 
@@ -64,3 +84,4 @@ export const VerticalDirection: Story = {
     direction: "to bottom",
   },
 };
+

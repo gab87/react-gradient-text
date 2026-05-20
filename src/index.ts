@@ -1,2 +1,2 @@
 export { ReactGradientText } from "./ReactGradientText";
-export type { ReactGradientTextProps } from "./ReactGradientText.types";
+export type { ReactGradientTextProps, AnimationType } from "./ReactGradientText.types";
