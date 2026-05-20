@@ -1,5 +1,5 @@
 {
-  "name": "react-gradient-text",
+  "name": "@_gmdev/react-gradient-text",
   "version": "1.0.0",
   "description": "A React component to render text with CSS gradient colors",
   "type": "module",
