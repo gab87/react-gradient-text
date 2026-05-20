@@ -2,10 +2,14 @@
   "name": "@_gmdev/react-gradient-text",
   "version": "1.0.0",
   "description": "A React component to render text with CSS gradient colors",
+  "author": "Gabriele Marconetta <gabriele.marconetta@gmail.com>",
   "type": "module",
   "main": "./dist/react-gradient-text.cjs",
   "module": "./dist/react-gradient-text.js",
   "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -57,6 +61,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/react-gradient-text"
+    "url": "https://github.com/gab87/react-gradient-text"
   }
 }
