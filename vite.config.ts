@@ -13,7 +13,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "ReactGradientText",
-      fileName: "react-gradient-text",
+      fileName: "gmdev-react-gradient-text",
       formats: ["es", "cjs"],
     },
     rollupOptions: {

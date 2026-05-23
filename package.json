@@ -4,8 +4,8 @@
   "description": "A React component to render text with CSS gradient colors",
   "author": "Gabriele Marconetta <gabriele.marconetta@gmail.com>",
   "type": "module",
-  "main": "./dist/react-gradient-text.cjs",
-  "module": "./dist/react-gradient-text.js",
+  "main": "./dist/gmdev-react-gradient-text.cjs",
+  "module": "./dist/gmdev-react-gradient-text.js",
   "types": "./dist/index.d.ts",
   "publishConfig": {
     "access": "public"
@@ -13,8 +13,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/react-gradient-text.js",
-      "require": "./dist/react-gradient-text.cjs"
+      "import": "./dist/gmdev-react-gradient-text.js",
+      "require": "./dist/gmdev-react-gradient-text.cjs"
     }
   },
   "files": [

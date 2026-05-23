@@ -1,17 +1,17 @@
-# react-gradient-text
+# @_gmdev/react-gradient-text
 
 A lightweight React component to render text with CSS gradient colors.
 
 ## Installation
 
 ```bash
-npm install react-gradient-text
+npm install @_gmdev/react-gradient-text
 ```
 
 ## Usage
 
 ```tsx
-import { ReactGradientText } from "react-gradient-text";
+import { ReactGradientText } from "@_gmdev/react-gradient-text";
 
 function App() {
   return (
